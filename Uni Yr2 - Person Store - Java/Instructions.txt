@@ -1,0 +1,6 @@
+********MAKE SURE PATH AND CLASSPATHS ARE SET**********
+
+Run Dr Java
+Include / Open all .java files in the 'assignment2' folder
+In Dr Java compile all and then run the GUI.java file
+You can use the 'Person.dat' (in this directory) data file for example people

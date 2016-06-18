@@ -1,0 +1,35 @@
+********MAKE SURE PATH AND CLASSPATHS ARE SET**********
+
+A database should already be set up on jbnet.no-ip.org for this to work...
+
+
+
+Otherwise, create a mysql database with: 
+	
+
+user: brindlej
+	
+password: helloThere123
+	
+database name: brindlej
+
+	
+	default port no;
+
+
+
+Then run the 'brindlej' database script to set up the tables
+
+
+
+In a command window navigate to 'bin' folder
+
+Run 'rmiserver.bat'
+in a seperate cmd window
+Navigate to bin folder
+Rrun 'java Chatter'
+
+
+
+You should be ready to start chatting via RMI services
+

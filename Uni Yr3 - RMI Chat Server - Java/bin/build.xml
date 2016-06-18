@@ -1,0 +1,16 @@
+<project name="crs472" default="compile" basedir=".">
+
+
+	<!-- 
+		The "compile" target is used to compile (or recompile) 
+		the Java classes that make up this application.  
+	-->
+	<target name="compile" description="Compile the files">
+		<javac  srcdir="." 
+			   destdir="." 
+			   deprecation="on" />
+	</target>
+
+
+
+</project>

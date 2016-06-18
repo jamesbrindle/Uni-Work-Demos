@@ -1,0 +1,8 @@
+WARNING -- change the variables but do NOT add or subtract any line spaces
+-
+Server Address:
+rmi://localhost/RMIChatServerJBNET
+-
+History Size (in lines):
+12
+-

@@ -1,0 +1,6 @@
+********MAKE SURE PATH AND CLASSPATHS ARE SET**********
+
+- Run Dr Java
+- Open brindlej_groupA_assign2.java in Dr Java
+- Compile
+- Run
