@@ -1,0 +1,4 @@
+<------Server Options------>
+
+Connector URL:
+http://localhost:8180/mob-assign1-web/servlet/MIDletServlet

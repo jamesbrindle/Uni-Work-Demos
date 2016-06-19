@@ -1,0 +1,7 @@
+MIDlet-Version: 1.0.0
+MIDlet-Vendor: MIDlet Suite Vendor
+MIDlet-Jar-URL: mob-assign1-MIDlet.jar
+MicroEdition-Configuration: CLDC-1.0
+MIDlet-1: mobileQuiz, noIcon, RunMIDlet
+MicroEdition-Profile: MIDP-1.0
+MIDlet-Name: mobileQuiz

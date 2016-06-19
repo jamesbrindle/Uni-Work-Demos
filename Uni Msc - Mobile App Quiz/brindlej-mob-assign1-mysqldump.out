@@ -1,0 +1,161 @@
+-- MySQL dump 10.11
+--
+-- Host: mudfoot.doc.stu.mmu.ac.uk    Database: brindlej
+-- ------------------------------------------------------
+-- Server version	5.0.19-nt
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `questions`
+--
+
+DROP TABLE IF EXISTS `questions`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `questions` (
+  `questionid` int(8) NOT NULL auto_increment,
+  `questionno` int(3) NOT NULL,
+  `weekno` int(3) NOT NULL,
+  `answerno` int(2) NOT NULL,
+  `answers` varchar(100) NOT NULL,
+  `correctanswer` int(2) NOT NULL,
+  `subjectid` varchar(8) default NULL,
+  `question` varchar(100) default NULL,
+  UNIQUE KEY `id` (`questionid`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `questions`
+--
+
+LOCK TABLES `questions` WRITE;
+/*!40000 ALTER TABLE `questions` DISABLE KEYS */;
+INSERT INTO `questions` VALUES (1,1,1,1,'energy = mass X light squared',1,'100','What does e=mc2 stand for?'),(2,1,1,2,'mass = energy X mass squared',0,'100','What does e=mc2 stand for?'),(3,1,1,3,'mass and energy are the same',0,'100','What does e=mc2 stand for?'),(4,1,1,4,'energy = light X mass squared',0,'100','What does e=mc2 stand for?'),(5,1,1,1,'energy = mass X light squared',1,'1001','What does e=mc2 stand for?'),(6,1,1,2,'mass = energy X mass squared',0,'1001','What does e=mc2 stand for?'),(7,1,1,3,'mass and energy are the same',0,'1001','What does e=mc2 stand for?'),(8,1,1,4,'energy = light X mass squared',0,'1001','What does e=mc2 stand for?'),(9,2,1,1,'1 million miles per hour',0,'1001','What is the speed of light in miles/hour?'),(10,2,1,2,'1 million miles per seconds',0,'1001','What is the speed of light in miles/hour?'),(11,2,1,3,'186 000 miles per second',1,'1001','What is the speed of light in miles/hour?'),(12,2,1,4,'non of the above',0,'1001','What is the speed of light in miles/hour?'),(13,1,2,1,'e=mc',0,'1001','What is Albert Einsteins famous theory of relativity?'),(14,1,2,2,'mc2=e',0,'1001','What is Albert Einsteins famous theory of relativity?'),(15,1,2,3,'e=mc3',0,'1001','What is Albert Einsteins famous theory of relativity?'),(16,1,2,4,'e=mc2',1,'1001','What is Albert Einsteins famous theory of relativity?'),(17,2,2,1,'37.7 million light years',0,'1001','What is the estimated distance from earth to the edge of the visible universe?'),(18,2,2,2,'1000 billion light years',0,'1001','What is the estimated distance from earth to the edge of the visible universe?'),(19,2,2,3,'45.5 billion light years',1,'1001','What is the estimated distance from earth to the edge of the visible universe?'),(20,2,2,4,'Infinite',0,'1001','What is the estimated distance from earth to the edge of the visible universe?'),(21,1,3,1,'43',0,'1001','How many moons does Saturn have?'),(22,1,3,2,'12',0,'1001','How many moons does Saturn have?'),(23,1,3,3,'80',0,'1001','How many moons does Saturn have?'),(24,1,3,4,'61',1,'1001','How many moons does Saturn have?'),(25,1,1,1,'*',0,'1005','What is the symbol for a pointer in the programming language C?'),(26,1,1,2,'%',0,'1005','What is the symbol for a pointer in the programming language C?'),(27,1,1,3,'&',0,'1005','What is the symbol for a pointer in the programming language C?'),(28,1,1,4,'$',1,'1005','What is the symbol for a pointer in the programming language C?'),(29,1,1,1,'1720',0,'1002','what year did leonardo da vinci die?'),(30,1,1,2,'1519',1,'1002','what year did leonardo da vinci die?'),(31,1,1,3,'1250',0,'1002','what year did leonardo da vinci die?'),(32,1,1,4,'1740',0,'1002','what year did leonardo da vinci die?');
+/*!40000 ALTER TABLE `questions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `results`
+--
+
+DROP TABLE IF EXISTS `results`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `results` (
+  `resultid` int(8) NOT NULL auto_increment,
+  `subjectid` int(4) NOT NULL,
+  `userid` int(8) NOT NULL,
+  `weekno` int(3) NOT NULL,
+  `questionno` int(3) NOT NULL,
+  `answerno` int(2) NOT NULL,
+  `iscorrect` int(2) default NULL,
+  UNIQUE KEY `id` (`resultid`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `results`
+--
+
+LOCK TABLES `results` WRITE;
+/*!40000 ALTER TABLE `results` DISABLE KEYS */;
+INSERT INTO `results` VALUES (1,1001,123456,1,1,1,1),(2,1001,123456,1,2,3,1),(3,1001,123456,2,1,2,0),(4,1001,123456,2,2,3,1),(5,1001,123457,1,1,1,1),(6,1001,123457,1,2,3,1),(7,1001,123457,2,1,2,0),(8,1001,123457,2,2,3,1),(9,1005,123457,1,1,3,0),(10,1001,123458,1,1,1,1),(11,1001,123458,1,2,3,1),(12,1001,123458,2,1,1,0),(13,1001,123458,2,2,1,0),(14,1001,123458,3,1,3,0);
+/*!40000 ALTER TABLE `results` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `subjects`
+--
+
+DROP TABLE IF EXISTS `subjects`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `subjects` (
+  `subjectid` int(4) NOT NULL auto_increment,
+  `subjectname` varchar(20) NOT NULL,
+  UNIQUE KEY `id` (`subjectid`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `subjects`
+--
+
+LOCK TABLES `subjects` WRITE;
+/*!40000 ALTER TABLE `subjects` DISABLE KEYS */;
+INSERT INTO `subjects` VALUES (1000,'English Literature'),(1001,'Physics'),(1002,'Art'),(1003,'Chemistry'),(1004,'Geography'),(1005,'Computing');
+/*!40000 ALTER TABLE `subjects` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tutors`
+--
+
+DROP TABLE IF EXISTS `tutors`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `tutors` (
+  `userid` int(6) NOT NULL default '0',
+  `password` varchar(20) NOT NULL default '',
+  `firstname` varchar(20) NOT NULL default '',
+  `secondname` varchar(20) NOT NULL default ''
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `tutors`
+--
+
+LOCK TABLES `tutors` WRITE;
+/*!40000 ALTER TABLE `tutors` DISABLE KEYS */;
+INSERT INTO `tutors` VALUES (54321,'password','Nick','Whittaker');
+/*!40000 ALTER TABLE `tutors` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `users` (
+  `userid` int(6) NOT NULL auto_increment,
+  `password` varchar(20) NOT NULL,
+  `firstname` varchar(20) NOT NULL,
+  `secondname` varchar(20) NOT NULL,
+  UNIQUE KEY `id` (`userid`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (123456,'password','Jamie','Brindle'),(123457,'password','John','Smith'),(123458,'password','James','Barrren'),(123459,'password','Erric','Johnson'),(123460,'password','Ethan','Johnso');
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2009-11-12 20:22:57

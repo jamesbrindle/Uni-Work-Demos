@@ -1,0 +1,20 @@
+<------Server Options------>
+AMMEND THE DETAILS BUT NOT THE LINES IN WHICH THEY ARE POSITIONED
+There is a backup file within this directory if something goes wrong
+
+Database Name:
+brindlej
+
+User:
+brindlej
+
+Password:
+atinhinc
+
+url:
+jdbc:mysql://mudfoot.doc.stu.mmu.ac.uk/
+
+mysql Connector class:
+com.mysql.jdbc.Driver
+
+

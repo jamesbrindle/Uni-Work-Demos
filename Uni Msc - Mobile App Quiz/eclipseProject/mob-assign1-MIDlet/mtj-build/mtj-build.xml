@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir=".." default="build-all" name="mob-assign1-MIDlet">
+   <target depends="clean-all" name="build-all">
+      <antcall target="package-DefaultColorPhone"/>
+   </target>
+   <taskdef classpath="${antenna.lib}" resource="antenna.properties"/>
+   <property file="mtj-build/mtj-build.properties"/>
+   <target depends="" name="clean-all">
+      <antcall target="clean-DefaultColorPhone"/>
+   </target>
+   <target depends="" name="clean-DefaultColorPhone">
+      <delete dir="mtj-build/DefaultColorPhone" failonerror="false"/>
+   </target>
+   <target depends="clean-DefaultColorPhone" name="init-DefaultColorPhone">
+      <mkdir dir="mtj-build/DefaultColorPhone/mob-assign1-MIDlet/"/>
+      <mkdir dir="deployed/DefaultColorPhone/"/>
+      <mkdir dir="mtj-build/DefaultColorPhone/mob-assign1-MIDlet/classes/"/>
+      <mkdir dir="mtj-build/DefaultColorPhone/mob-assign1-MIDlet/resources/"/>
+      <mkdir dir="mtj-build/DefaultColorPhone/mob-assign1-MIDlet/bin/"/>
+   </target>
+   <target depends="init-DefaultColorPhone" name="collect-resources-DefaultColorPhone">
+      <copy file="Application Descriptor" tofile="deployed/DefaultColorPhone/mob-assign1-MIDlet.jad"/>
+      <copy todir="mtj-build/DefaultColorPhone/mob-assign1-MIDlet/resources/">
+         <fileset dir="../mob-assign1-MIDlet/src" excludes="**/**.java"/>
+         <fileset dir="../mob-assign1-MIDlet/res" excludes="**/**.java"/>
+      </copy>
+   </target>
+   <target depends="collect-resources-DefaultColorPhone" name="collect-sources-DefaultColorPhone">
+      <copy overwrite="true" todir="mtj-build/DefaultColorPhone/mob-assign1-MIDlet/classes/">
+         <fileset dir="../mob-assign1-MIDlet/src" includes="**/**.java"/>
+         <fileset dir="../mob-assign1-MIDlet/res" includes="**/**.java"/>
+      </copy>
+   </target>
+   <target depends="collect-sources-DefaultColorPhone" name="build-DefaultColorPhone">
+      <wtkbuild bootclasspath="/home/jamie/Programs/WTK2.5.2/lib/midpapi21.jar:/home/jamie/Programs/WTK2.5.2/lib/cldcapi11.jar:/home/jamie/Programs/WTK2.5.2/lib/wma20.jar:/home/jamie/Programs/WTK2.5.2/lib/mmapi.jar:/home/jamie/Programs/WTK2.5.2/lib/j2me-ws.jar:/home/jamie/Programs/WTK2.5.2/lib/j2me-xmlrpc.jar:/home/jamie/Programs/WTK2.5.2/lib/jsr75.jar:/home/jamie/Programs/WTK2.5.2/lib/jsr082.jar:/home/jamie/Programs/WTK2.5.2/lib/jsr184.jar:/home/jamie/Programs/WTK2.5.2/lib/jsr179.jar:/home/jamie/Programs/WTK2.5.2/lib/satsa-apdu.jar:/home/jamie/Programs/WTK2.5.2/lib/satsa-jcrmi.jar:/home/jamie/Programs/WTK2.5.2/lib/satsa-pki.jar:/home/jamie/Programs/WTK2.5.2/lib/satsa-crypto.jar:/home/jamie/Programs/WTK2.5.2/lib/jsr211.jar:/home/jamie/Programs/WTK2.5.2/lib/jsr238.jar:/home/jamie/Programs/WTK2.5.2/lib/jsr229.jar:/home/jamie/Programs/WTK2.5.2/lib/jsr180.jar:/home/jamie/Programs/WTK2.5.2/lib/jsr234.jar:/home/jamie/Programs/WTK2.5.2/lib/jsr226.jar:/home/jamie/Programs/WTK2.5.2/lib/jsr239.jar:" destdir="mtj-build/DefaultColorPhone/mob-assign1-MIDlet/bin/" encoding="UTF-8" source="1.3" sourcepath="" srcdir="mtj-build/DefaultColorPhone/mob-assign1-MIDlet/classes/"/>
+   </target>
+   <target depends="build-DefaultColorPhone" name="package-DefaultColorPhone">
+      <wtkpackage autoversion="${do-autoversion}" bootclasspath="/home/jamie/Programs/WTK2.5.2/lib/midpapi21.jar:/home/jamie/Programs/WTK2.5.2/lib/cldcapi11.jar:/home/jamie/Programs/WTK2.5.2/lib/wma20.jar:/home/jamie/Programs/WTK2.5.2/lib/mmapi.jar:/home/jamie/Programs/WTK2.5.2/lib/j2me-ws.jar:/home/jamie/Programs/WTK2.5.2/lib/j2me-xmlrpc.jar:/home/jamie/Programs/WTK2.5.2/lib/jsr75.jar:/home/jamie/Programs/WTK2.5.2/lib/jsr082.jar:/home/jamie/Programs/WTK2.5.2/lib/jsr184.jar:/home/jamie/Programs/WTK2.5.2/lib/jsr179.jar:/home/jamie/Programs/WTK2.5.2/lib/satsa-apdu.jar:/home/jamie/Programs/WTK2.5.2/lib/satsa-jcrmi.jar:/home/jamie/Programs/WTK2.5.2/lib/satsa-pki.jar:/home/jamie/Programs/WTK2.5.2/lib/satsa-crypto.jar:/home/jamie/Programs/WTK2.5.2/lib/jsr211.jar:/home/jamie/Programs/WTK2.5.2/lib/jsr238.jar:/home/jamie/Programs/WTK2.5.2/lib/jsr229.jar:/home/jamie/Programs/WTK2.5.2/lib/jsr180.jar:/home/jamie/Programs/WTK2.5.2/lib/jsr234.jar:/home/jamie/Programs/WTK2.5.2/lib/jsr226.jar:/home/jamie/Programs/WTK2.5.2/lib/jsr239.jar:" jadfile="deployed/DefaultColorPhone/mob-assign1-MIDlet.jad" jarfile="deployed/DefaultColorPhone/mob-assign1-MIDlet.jar" obfuscate="${do-obfuscate}" preverify="false">
+         <fileset dir="mtj-build/DefaultColorPhone/mob-assign1-MIDlet/bin/"/>
+         <fileset dir="mtj-build/DefaultColorPhone/mob-assign1-MIDlet/resources/"/>
+      </wtkpackage>
+   </target>
+</project>
